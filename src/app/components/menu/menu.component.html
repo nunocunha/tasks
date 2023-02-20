@@ -1,0 +1,15 @@
+<ng-container *ngFor="let route of routes">
+    <a *ngIf="route.data?.['name']"
+       [routerLink]="route.path"
+       mat-list-item>
+        <mat-icon *ngIf="route.data?.['icon']"
+                  matListItemIcon>
+            <!-- Icon names can be found on this page: https://fonts.google.com/icons?icon.set=Material+Icons -->
+            {{route.data?.['icon']}}
+        </mat-icon>
+        {{route.data?.['name']}}</a>
+    <div *ngIf="route.children"
+         class="indent">
+        <tasks-menu [routes]="route.children"></tasks-menu>
+    </div>
+</ng-container>
