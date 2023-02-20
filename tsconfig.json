@@ -25,9 +25,6 @@
         ],
         "types": []
     },
-    "include": [
-        "**/*.d.ts"
-    ],
     "exclude": [
         "coverage",
         "dist",
