@@ -1,0 +1,26 @@
+<mat-toolbar class="toolbar"
+             color="primary">
+    <button (click)="sidenav.toggle()"
+            mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name">Tasks</h1>
+</mat-toolbar>
+
+<mat-sidenav-container [style.margin-top.px]="mobileQuery.matches ? 56 : 0"
+                       class="sidenav-container">
+    <mat-sidenav #sidenav
+                 [fixedInViewport]="mobileQuery.matches"
+                 [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 fixedTopGap="56">
+        <mat-nav-list>
+            <tasks-menu [routes]="routes"></tasks-menu>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
