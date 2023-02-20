@@ -22,6 +22,12 @@ module.exports = {
             ],
         },
         {
+            files: ['cypress/support/**/*.ts'],
+            rules: {
+                '@typescript-eslint/no-namespace': 'off',
+            },
+        },
+        {
             files: ['*.html'],
             extends: [
                 'plugin:@angular-eslint/template/recommended',
