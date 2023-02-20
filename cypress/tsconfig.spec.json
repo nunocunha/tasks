@@ -1,6 +1,7 @@
 {
     "extends": "../tsconfig.spec.json",
     "compilerOptions": {
+        "outDir": "./dist/tsc-cypress",
         "noEmit": true,
         "types": [
             "cypress"

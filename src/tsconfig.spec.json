@@ -1,6 +1,7 @@
 {
     "extends": "../tsconfig.spec.json",
     "compilerOptions": {
+        "outDir": "./dist/tsc-jest",
         "noEmit": true,
         "types": [
             "jest"
