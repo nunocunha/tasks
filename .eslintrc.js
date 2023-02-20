@@ -1,5 +1,6 @@
 module.exports = {
     ignorePatterns: [
+        'coverage',
         'dist',
         'node_modules',
         '.eslintrc.js',
