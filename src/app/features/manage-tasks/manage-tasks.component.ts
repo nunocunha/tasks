@@ -2,12 +2,12 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'tasks-list',
-    templateUrl: './list.component.html',
+    templateUrl: './manage-tasks.component.html',
     styleUrls: [
         '../../components/base.css',
-        './list.component.css',
+        './manage-tasks.component.css',
     ],
 })
-export class ListComponent {
+export class ManageTasksComponent {
 
 }

@@ -11,7 +11,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {RouterModule, Routes} from '@angular/router';
 import {MenuModule} from './components/menu/menu.module';
-import {ListComponent} from './features/list/list.component';
+import {ManageTasksComponent} from './features/manage-tasks/manage-tasks.component';
 
 @NgModule({
     declarations: [
@@ -34,10 +34,10 @@ import {ListComponent} from './features/list/list.component';
 export class AppModule {
     public static readonly mainRoutes: Routes = [
         {
-            path: 'list',
-            component: ListComponent,
+            path: 'manage-tasks',
+            component: ManageTasksComponent,
             data: {
-                name: 'List',
+                name: 'Manage tasks',
                 icon: 'checklist',
             },
         },
@@ -47,7 +47,7 @@ export class AppModule {
         {
             path: '',
             pathMatch: 'full',
-            redirectTo: 'list',
+            redirectTo: [...AppModule.mainRoutes].pop()?.path,
         },
         ...AppModule.mainRoutes,
         {

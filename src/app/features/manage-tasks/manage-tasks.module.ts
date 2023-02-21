@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ListComponent} from './list.component';
+import {ManageTasksComponent} from './manage-tasks.component';
 
 @NgModule({
     declarations: [
-        ListComponent,
+        ManageTasksComponent,
     ],
     imports: [
         CommonModule,
     ],
 })
-export class ListModule {
+export class ManageTasksModule {
 }
