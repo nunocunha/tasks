@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>New task</h1>
+
+<mat-dialog-content [cdkTrapFocusAutoCapture]="true"
+                    cdkTrapFocus
+                    class="mat-typography">
+    <p>Please provide the new task name</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Task name</mat-label>
+        <input [formControl]="title"
+               cdkFocusInitial
+               matInput
+               required>
+        <mat-error *ngIf="title.invalid">You must enter a value</mat-error>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button [mat-dialog-close]="null"
+            mat-button>Discard
+    </button>
+    <button [disabled]="title.invalid"
+            [mat-dialog-close]="task"
+            mat-button>Ok
+    </button>
+</mat-dialog-actions>
