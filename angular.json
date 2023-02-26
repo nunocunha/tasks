@@ -74,6 +74,12 @@
                     "options": {
                         "browserTarget": "tasks:build"
                     }
+                },
+                "deploy": {
+                    "builder": "angular-cli-ghpages:deploy",
+                    "options": {
+                        "baseHref": "/tasks/"
+                    }
                 }
             }
         }
