@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
@@ -11,7 +11,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {RouterModule, Routes} from '@angular/router';
 import {MenuModule} from './components/menu/menu.module';
-import {ManageTasksComponent} from './features/manage-tasks/manage-tasks.component';
+
+@Component({
+    standalone: true,
+    template: '',
+})
+class EmptyComponent {
+}
 
 @NgModule({
     declarations: [
@@ -20,7 +26,7 @@ import {ManageTasksComponent} from './features/manage-tasks/manage-tasks.compone
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(AppModule.rootRoutes),
+        RouterModule.forRoot(AppModule.routes),
         MatToolbarModule,
         MatButtonModule,
         MatIconModule,
@@ -32,28 +38,15 @@ import {ManageTasksComponent} from './features/manage-tasks/manage-tasks.compone
     bootstrap: [AppComponent],
 })
 export class AppModule {
-    public static readonly mainRoutes: Routes = [
-        {
-            path: 'manage-tasks',
-            component: ManageTasksComponent,
-            data: {
-                name: 'Manage tasks',
-                icon: 'checklist',
-            },
-        },
-    ];
-
-    public static readonly rootRoutes: Routes = [
+    public static readonly routes: Routes = [
         {
             path: '',
             pathMatch: 'full',
-            redirectTo: [...AppModule.mainRoutes].pop()?.path,
+            component: EmptyComponent,
         },
-        ...AppModule.mainRoutes,
         {
             path: '**',
-            component: class Error {
-            },
+            component: EmptyComponent,
         },
     ];
 }

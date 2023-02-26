@@ -1,6 +1,5 @@
 import {ChangeDetectorRef, Component, HostBinding} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
-import {AppModule} from './app.module';
 
 @Component({
     selector: 'tasks-root',
@@ -9,7 +8,6 @@ import {AppModule} from './app.module';
 })
 export class AppComponent {
     public mobileQuery: MediaQueryList;
-    public routes = AppModule.mainRoutes;
     @HostBinding('class.container') private hasContainerClass = true;
     @HostBinding('class.is-mobile') private hasMobileClass = false;
 
