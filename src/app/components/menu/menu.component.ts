@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges} from '@angular/core';
-import {Routes} from '@angular/router';
 import {MenuSimpleChanges} from './models/internal/menu-simple-changes';
+import {CustomRoute} from '../../helpers/types/custom-route';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'tasks-menu',
@@ -11,9 +12,16 @@ import {MenuSimpleChanges} from './models/internal/menu-simple-changes';
     ],
 })
 export class MenuComponent implements OnChanges {
-    @Input() public routes: Routes = [];
+    @Input() public routes: CustomRoute[];
+    @Input() public basePath: string;
+
+    public constructor(router: Router) {
+        this.basePath = '';
+        this.routes = router.config.filter((route) => route.data?.['menuEntry'] != null)
+            .map((route) => route as CustomRoute);
+    }
 
     public ngOnChanges(changes: MenuSimpleChanges): void {
-        this.routes = changes.routes?.currentValue.filter((route) => route.data?.['name'] != null) ?? this.routes;
+        this.routes = changes.routes.currentValue;
     }
 }
