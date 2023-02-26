@@ -1,14 +1,13 @@
 <ng-container *ngFor="let route of routes">
-    <a *ngIf="route.data.menuEntry"
-       [class.has-leading-icon]="route.data.menuEntry.icon"
+    <a class="has-leading-icon"
        mat-list-item
        routerLink="{{basePath}}/{{route.path}}">
-        <mat-icon *ngIf="route.data.menuEntry.icon"
-                  matListItemIcon>
+        <mat-icon matListItemIcon>
             <!-- Icon names can be found on this page: https://fonts.google.com/icons?icon.set=Material+Icons -->
             {{route.data.menuEntry.icon}}
         </mat-icon>
-        {{route.data.menuEntry.name}}</a>
+        {{route.data.menuEntry.name}}
+    </a>
     <div *ngIf="route.children"
          class="indent">
         <tasks-menu [routes]="route.children"
