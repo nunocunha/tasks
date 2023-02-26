@@ -6,3 +6,8 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+button[mat-fab] {
+    position: fixed;
+    margin: 16px;
+}
