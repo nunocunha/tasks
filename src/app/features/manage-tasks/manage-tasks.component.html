@@ -1,0 +1,27 @@
+<button (click)="addTaskButton()"
+        aria-label="Add new task"
+        color="primary"
+        mat-fab>
+    <mat-icon>add</mat-icon>
+</button>
+
+<mat-selection-list>
+    <mat-list-option (selectedChange)="markTask(task, $event)"
+                     *ngFor="let task of tasks"
+                     [selected]="task.done"
+                     togglePosition="before">
+        <div style="display: flex; align-items: center">
+            <div style="flex: 1">{{task.title}}</div>
+            <button (click)="editTaskButton(task, $event)"
+                    aria-label="Edit task"
+                    mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button (click)="removeTaskButton(task, $event)"
+                    aria-label="Remove task"
+                    mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-list-option>
+</mat-selection-list>

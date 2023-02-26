@@ -11,6 +11,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {RouterModule, Routes} from '@angular/router';
 import {MenuModule} from './components/menu/menu.module';
+import {ManageTasksModule} from './features/manage-tasks/manage-tasks.module';
 
 @Component({
     standalone: true,
@@ -33,6 +34,7 @@ class EmptyComponent {
         MatSidenavModule,
         MatListModule,
         MenuModule,
+        ManageTasksModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
