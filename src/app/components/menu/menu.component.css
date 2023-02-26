@@ -1,3 +1,7 @@
 :host .indent {
-    padding-left: 8px;
+    padding-left: 16px;
+}
+
+:host .has-leading-icon {
+    padding-right: 32px;
 }
