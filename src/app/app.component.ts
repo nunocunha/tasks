@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, HostBinding} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {MediaMatcher} from '@angular/cdk/layout';
 
 @Component({
@@ -6,16 +6,20 @@ import {MediaMatcher} from '@angular/cdk/layout';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
     public mobileQuery: MediaQueryList;
     @HostBinding('class.container') private hasContainerClass = true;
     @HostBinding('class.is-mobile') private hasMobileClass = false;
 
-    public constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+    public constructor(media: MediaMatcher) {
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
+
         this.mobileQuery.addEventListener('change', () => {
             this.hasMobileClass = this.mobileQuery.matches;
-            changeDetectorRef.detectChanges();
         });
+    }
+
+    public ngOnInit(): void {
+        this.hasMobileClass = this.mobileQuery.matches;
     }
 }
