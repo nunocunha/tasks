@@ -23,7 +23,8 @@
         "test:unit": "jest",
         "test:cypress": "npm-run-all -s test:cypress:*",
         "test:cypress:component": "cypress run --component",
-        "test:cypress:e2e": "cypress run --e2e"
+        "test:cypress:e2e": "cypress run --e2e",
+        "deploy": "ng deploy"
     },
     "dependencies": {
         "@angular/animations": "~15.1.0",
